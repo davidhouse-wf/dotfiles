@@ -13,13 +13,13 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "MathBook Pro"
-sudo scutil --set HostName "MathBook Pro"
-sudo scutil --set LocalHostName "MathBook-Pro"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MathBook-Pro"
+# sudo scutil --set ComputerName "MathBook Pro"
+# sudo scutil --set HostName "MathBook Pro"
+# sudo scutil --set LocalHostName "MathBook-Pro"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MathBook-Pro"
 
 # Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
+# sudo pmset -a standbydelay 86400
 
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
@@ -38,7 +38,7 @@ defaults write NSGlobalDomain AppleHighlightColor -string '0.764700 0.976500 0.5
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
 # Always show scrollbars
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
 # Possible values: `WhenScrolling`, `Automatic` and `Always`
 
 # Disable smooth scrolling
@@ -95,10 +95,10 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 systemsetup -setrestartfreeze on
 
 # Never go into computer sleep mode
-systemsetup -setcomputersleep Off > /dev/null
+#systemsetup -setcomputersleep Off > /dev/null
 
 # Check for software updates daily, not just once per week
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+#defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
@@ -113,10 +113,10 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+# defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
 # Trackpad: swipe between pages with three fingers
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
@@ -160,12 +160,12 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
 defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `systemsetup -listtimezones` for other values
-systemsetup -settimezone "Europe/Brussels" > /dev/null
+#systemsetup -settimezone "Europe/Brussels" > /dev/null
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -344,7 +344,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Enable the 2D Dock
-#defaults write com.apple.dock no-glass -bool true
+defaults write com.apple.dock no-glass -bool true
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -375,14 +375,14 @@ ln -s /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app /Appli
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
-# Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
+# Top left screen corner → disable SS
+defaults write com.apple.dock wvous-tl-corner -int 6
 defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
+# Top right screen corner → disable SS
+defaults write com.apple.dock wvous-tr-corner -int 6
 defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Start screen saver
-defaults write com.apple.dock wvous-bl-corner -int 5
+# Bottom left screen corner → Lock screen
+defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
