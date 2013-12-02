@@ -1,4 +1,6 @@
-[ -n "$PS1" ] && source ~/.bash_profile
+echo '.bashrc'
+
+# [ -n "$PS1" ] && source ~/.bash_profile
 
 set -o vi
 #export PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '
@@ -15,15 +17,20 @@ export HISTFILESIZE=100000
 export HISTIGNORE="&:[ ]*:exit:ls:ls -la:cd:pwd:jobs"
 
 # Auto-complete
-if [ -f ~/.config/bash_completion ]; then
-    . ~/.config/bash_completion
-fi
+#if [ -f ~/.config/bash_completion ]; then
+    #. ~/.config/bash_completion
+#fi
 
 # git-completion.bash
 # /usr/local/Cellar/git/1.8.4.1//etc/bash_completion.d/git-completion.bash
-. `brew --prefix`/share/git-core/../../etc/bash_completion.d/git-completion.bash
-. `brew --prefix`/share/git-core/../../etc/bash_completion.d/git-prompt.sh
-export PS1='\W$(__git_ps1 " (%s)")\$ '
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWCOLORHINTS=true
+GIT_PS1_UNTRACKEDFILES=true
+. $(brew --prefix)/share/git-core/../../etc/bash_completion.d/git-completion.bash
+. $(brew --prefix)/share/git-core/../../etc/bash_completion.d/git-prompt.sh
+#export PS1='\W$(__git_ps1 " (%s)")\$ '
+#export PS1='\[\]\w\[\]$(__git_ps1 " (%s)")\[\0]\[\]$ \[\]'
+PROMPT_COMMAND="__git_ps1 '\w' '\\$ '"
 
 # Screen
 export NETHACKOPTIONS="autoquiver,\!autopickup,name:Blue Meanie,fruit:papaya"
