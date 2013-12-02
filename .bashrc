@@ -22,10 +22,10 @@ export HISTIGNORE="&:[ ]*:exit:ls:ls -la:cd:pwd:jobs"
 #fi
 
 # git-completion.bash
-# /usr/local/Cellar/git/1.8.4.1//etc/bash_completion.d/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_UNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
 . $(brew --prefix)/share/git-core/../../etc/bash_completion.d/git-completion.bash
 . $(brew --prefix)/share/git-core/../../etc/bash_completion.d/git-prompt.sh
 #export PS1='\W$(__git_ps1 " (%s)")\$ '
