@@ -40,3 +40,10 @@ which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+# Misc system tools
+alias rmtrash='sudo rm -Rf ~/.Trash/*'
+
+# add npm for nodejs
+export PATH=$PATH:/usr/local/share/npm/bin
+export NODE_PATH=/usr/local/share/npm/lib/node_modules/
