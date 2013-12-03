@@ -48,7 +48,15 @@ which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 
 # Misc system tools
 alias rmtrash='sudo rm -Rf ~/.Trash/*'
+alias sky="cd /Users/davidhouse/workspaces/wf/bigsky/z_bigsky && source /Users/davidhouse/dev/wf/sky/bin/activate"
 
 # add npm for nodejs
 export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/share/npm/lib/node_modules/
+
+# pkg-config paths from homebrew
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
+
+# homebrew python packages
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
