@@ -18,5 +18,5 @@ fi
 unset doIt
 
 # set up vimified
-ln -sfn vimified ~/.vim
-ln -sfn vimified/vimrc ~/.vimrc
+ln -sfn $(pwd)/vimified ~/.vim
+ln -sfn $(pwd)/vimified/vimrc ~/.vimrc
