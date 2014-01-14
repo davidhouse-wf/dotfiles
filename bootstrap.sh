@@ -20,3 +20,8 @@ unset doIt
 # set up vimified
 ln -sfn $(pwd)/vimified ~/.vim
 ln -sfn $(pwd)/vimified/vimrc ~/.vimrc
+mkdir ~/.vim/tmp
+mkdir ~/.vim/tmp/backup
+mkdir ~/.vim/tmp/swap
+mkdir ~/.vim/tmp/undo
+git clone git@personal:gmarik/vundle.git ~/.vim/bundle/vundle
