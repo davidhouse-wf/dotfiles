@@ -24,8 +24,8 @@ install narwhal
 install vim --override-system-vi
 tap homebrew/dupes
 install homebrew/dupes/grep
-tap josegonzalez/homebrew-php
-install php55
+zsh:1: command not found: gg
+# install php55
 
 # This formula didn’t work well last time I tried it:
 #install homebrew/dupes/screen
@@ -45,8 +45,17 @@ install webkit2png
 install zopfli
 install p7zip
 
-tap homebrew/versions
-install lua52
+#tap homebrew/versions
+#install lua52
+
+# David additions
+install pkg-config
+install llvm --with-clang
+install autoconf
+install automake
+install poppler --with-glib
+install -v fontforge --with-cairo --with-czmq --with-git --with-x --with-libspiro --enable-pyextension
+install ncurses
 
 # Remove outdated versions from the cellar
 cleanup
