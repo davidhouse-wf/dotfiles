@@ -21,3 +21,13 @@ installcask transmission
 installcask ukelele
 installcask virtualbox
 installcask vlc
+installcask keepassx
+installcask calibre
+installcask hipchat
+installcask skype
+installcask vagrant
+installcask adobe-reader
+installcask gimp
+installcask grandperspective
+installcask xquartz
+installcask ps3-media-server
