@@ -73,6 +73,7 @@
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = vimdiff
 
 # URL shorthands
 [url "git@github.com:"]
@@ -93,3 +94,5 @@
 [user]
 	name = David House
 	email = david.house@webfilings.com
+[github]
+	user = davidhouse-wf
