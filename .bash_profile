@@ -44,8 +44,9 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # Misc system tools
-alias rmtrash='sudo rm -Rf ~/.Trash/*'
+alias rmtrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 alias sky="cd /Users/davidhouse/workspaces/wf/bigsky/z_bigsky && source /Users/davidhouse/dev/wf/sky/bin/activate"
+alias ios="open `xcode-select --print-path`/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
 
 # add npm for nodejs
 export PATH=$PATH:/usr/local/share/npm/bin
