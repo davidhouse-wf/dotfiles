@@ -56,6 +56,7 @@ install automake
 install poppler --with-glib
 install -v fontforge --with-cairo --with-czmq --with-git --with-x --with-libspiro --enable-pyextension
 install ncurses
+install the_silver_searcher
 
 # Remove outdated versions from the cellar
 cleanup
