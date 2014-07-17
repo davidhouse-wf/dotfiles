@@ -4,6 +4,8 @@ echo '.bash_profile'
 export PATH=$HOME/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
+. $HOME/.profile
+
 . $HOME/.bashrc
 
 # Load the shell dotfiles, and then some:
