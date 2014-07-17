@@ -21,7 +21,7 @@ install ringojs
 install narwhal
 
 # Install more recent versions of some OS X tools
-install vim --override-system-vi
+install vim --override-system-vim --override-system-vi
 tap homebrew/dupes
 install homebrew/dupes/grep
 zsh:1: command not found: gg
@@ -51,10 +51,11 @@ install p7zip
 # David additions
 install pkg-config
 install llvm --with-clang
+install libpng
 install autoconf
 install automake
 install poppler --with-glib
-install -v fontforge --with-cairo --with-czmq --with-git --with-x --with-libspiro --enable-pyextension
+install -v fontforge --with-cairo --with-czmq --with-git --with-x --with-libspiro --enable-pyextension --with-python
 install ncurses
 install the_silver_searcher
 
