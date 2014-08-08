@@ -20,14 +20,19 @@ export HISTIGNORE="&:[ ]*:exit:ls:ls -la:cd:pwd:jobs"
 #if [ -f ~/.config/bash_completion ]; then
     #. ~/.config/bash_completion
 #fi
+if [ -f /etc/bash_completion.d/git-prompt ]; then
+    source /etc/bash_completion.d/git-prompt  
+fi
 
 # git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 GIT_PS1_UNTRACKEDFILES=true
 GIT_PS1_SHOWSTASHSTATE=true
+if [ $(which brew) ]; then
 . $(brew --prefix)/share/git-core/../../etc/bash_completion.d/git-completion.bash
 . $(brew --prefix)/share/git-core/../../etc/bash_completion.d/git-prompt.sh
+fi
 #export PS1='\W$(__git_ps1 " (%s)")\$ '
 #export PS1='\[\]\w\[\]$(__git_ps1 " (%s)")\[\0]\[\]$ \[\]'
 PROMPT_COMMAND="__git_ps1 '\w' '\\$ '"
