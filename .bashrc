@@ -3,6 +3,10 @@ echo '.bashrc'
 # [ -n "$PS1" ] && source ~/.bash_profile
 
 set -o vi
+
+if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
+  export TERM=xterm-256color
+fi
 #export PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '
 #source ~/.bash_prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
