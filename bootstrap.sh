@@ -24,4 +24,4 @@ mkdir ~/.vim/tmp
 mkdir ~/.vim/tmp/backup
 mkdir ~/.vim/tmp/swap
 mkdir ~/.vim/tmp/undo
-git clone git@personal:gmarik/vundle.git ~/.vim/bundle/vundle
+git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle
