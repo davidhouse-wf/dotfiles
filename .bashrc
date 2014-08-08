@@ -21,7 +21,8 @@ export HISTIGNORE="&:[ ]*:exit:ls:ls -la:cd:pwd:jobs"
     #. ~/.config/bash_completion
 #fi
 if [ -f /etc/bash_completion.d/git-prompt ]; then
-    source /etc/bash_completion.d/git-prompt  
+    source /usr/share/bash-completion/completions/git
+    source /etc/bash_completion.d/git-prompt
 fi
 
 # git-completion.bash
