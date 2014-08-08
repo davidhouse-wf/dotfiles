@@ -45,7 +45,6 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # Misc system tools
 alias rmtrash='sudo rm -Rf ~/.Trash/*'
-alias sky="cd /Users/davidhouse/workspaces/wf/bigsky/z_bigsky && source /Users/davidhouse/dev/wf/sky/bin/activate"
 
 # add npm for nodejs
 export PATH=$PATH:/usr/local/share/npm/bin
