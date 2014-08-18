@@ -46,5 +46,4 @@ PROMPT_COMMAND="__git_ps1 '\w' '\\$ '"
 export NETHACKOPTIONS="autoquiver,\!autopickup,name:Blue Meanie,fruit:papaya"
 
 # golang
-export GOROOT=$HOME/workspaces/personal/go
-export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/workspaces/personal/go
