@@ -21,7 +21,7 @@ install ringojs
 install narwhal
 
 # Install more recent versions of some OS X tools
-install vim --override-system-vim --override-system-vi
+install vim --override-system-vim --override-system-vi --python3
 tap homebrew/dupes
 install homebrew/dupes/grep
 zsh:1: command not found: gg
