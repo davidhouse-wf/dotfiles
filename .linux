@@ -38,3 +38,9 @@
 # keypassx
 
 # virtualbox
+
+xdm
+i3
+laptop-mode-tools
+/etc/laptop-mode/laptop-mode.conf
+# enable laptop-mode.service
