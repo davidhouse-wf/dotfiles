@@ -2,6 +2,7 @@ echo '.bashrc'
 
 # [ -n "$PS1" ] && source ~/.bash_profile
 
+export VISUAL=vi
 set -o vi
 
 if [ -n "$DISPLAY" -a "$TERM" == "xterm" ]; then
@@ -44,6 +45,9 @@ PROMPT_COMMAND="__git_ps1 '\w' '\\$ '"
 
 # Screen
 export NETHACKOPTIONS="autoquiver,\!autopickup,name:Blue Meanie,fruit:papaya"
+
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 # golang
 export GOPATH=$HOME/workspaces/personal/go
