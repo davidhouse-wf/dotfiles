@@ -1,0 +1,19 @@
+[ui]
+username = joe di castro <joe@joedicastro.com>
+verbose = True
+
+[extensions]
+hgext.bookmarks =
+hggit = 
+hgext.graphlog =
+hgext.color=
+hgext.hgview=
+
+[hgview]
+# your hgview configs statements like: 
+dotradius = 6
+# interface: or curses or raw
+interface = raw 
+# type hg help qv to list available options
+
+

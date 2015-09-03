@@ -1,114 +1,119 @@
-# Mathias’s dotfiles
+# dotfiles
+This is a repository with my configuration files, those that in Linux normally
+are these files under the `$HOME` directory that are hidden and preceded by a
+dot, AKA __dotfiles__
 
-## Installation
+## Content
 
-### Using Git and the bootstrap script
+That's the *current content* of this repository, and these are the more remarkable
+files.
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+### `/awesome`
 
-```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && source bootstrap.sh
-```
+Configuration of [Awesome](http://awesome.naquadah.org/)
 
-To update, `cd` into your local `dotfiles` repository and then:
++ `/awesome/awdt.py` python script that allows me to test changes in the Awesome
+  configuration. Starts a X session nested into the current session and served
+  by Xephyr, with an test configuration (Awesome) running inside it.
 
-```bash
-source bootstrap.sh
-```
++ `/awesome/prep.org` is a Org-mode format file in which I store the
+  repositories, authors and licenses of the external libraries that I use in
+  this configuration.
 
-Alternatively, to update while avoiding the confirmation prompt:
++ `/awesome/check_execs.py` & `/awesome/logger.py` are symbolic links to two
+  python files that can be founded in this repository,
+  <https://github.com/joedicastro/python-recipes>
 
-```bash
-set -- -f; source bootstrap.sh
-```
+### `/compton`
 
-### Git-free install
+Configuration of [Compton](https://github.com/chjj/compton)
 
-To install these dotfiles without Git:
+### `/dunst`
 
-```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
-```
+Configuration of [dunst](https://github.com/knopwob/dunst)
 
-To update later on, just run that command again.
+### `/emacs`
 
-### Specify the `$PATH`
+Configuration of [Emacs](http://www.gnu.org/software/emacs/)
 
-If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
+### `/fontconfig`
 
-Here’s an example `~/.path` file that adds `~/utils` to the `$PATH`:
+Configuration of [fontconfig](http://www.freedesktop.org/wiki/Software/fontconfig)
 
-```bash
-export PATH="$HOME/utils:$PATH"
-```
+### `/fonts`
 
-### Add custom commands without creating a new fork
+The fonts that I use in my terminal, vim, etc ...
 
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+ - [Dejavu Sans Mono](http://dejavu-fonts.org) is a free public domain font and
+   has the probably best Unicode support from all the monospaced fonts
+   available.
+ - Dejavu Sans Mono for Powerline is the same font adapted to use it with
+   Powerline in Vim
 
-My `~/.extra` looks something like this:
+### `/git`
 
-```bash
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-```
+Configuration of [git](http://git-scm.com/)
 
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
+### `/gnupg`
 
-### Sensible OS X defaults
+Configuration of [GnuPG](https://www.gnupg.org/)
 
-When setting up a new Mac, you may want to set some sensible OS X defaults:
+### `/gtk`
 
-```bash
-./.osx
-```
+Configuration of the __Gtk__ theme to fix an error with the Gvim window
 
-### Install Homebrew formulae
+### `/hg`
 
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
+Configuration of [Mercurial](http://mercurial.selenic.com/)
 
-```bash
-brew bundle ~/Brewfile
-```
++ `/hg/bb_gh.py` a Python Mercurial hook to do `hg push` simultaneously to the
+  same repository in both GitHub and Bitbucket sites
 
-### Install native apps with `brew cask`
+### `/mpd`
 
-You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
+Configuration of [mpd](http://mpd.wikia.com/wiki/Music_Player_Daemon_Wiki)
 
-```bash
-./.cask
-```
+### `/ncmpcpp`
 
-## Feedback
+Configuration of [ncmpcpp](http://ncmpcpp.rybczak.net/)
 
-Suggestions/improvements
-[welcome](https://github.com/mathiasbynens/dotfiles/issues)!
+### `/pentadactyl`
 
-## Author
+Configuration of [Pentadactyl](http://5digits.org/pentadactyl/)
 
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](http://mathiasbynens.be/) |
+### `/pylint`
 
-## Thanks to…
+Configuration of [Pylint](http://www.pylint.org/)
 
-* @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
-* [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
-* [Chris Gerke](http://www.randomsquared.com/) and his [tutorial on creating an OS X SOE master image](http://chris-gerke.blogspot.com/2012/04/mac-osx-soe-master-image-day-7.html) + [_Insta_ repository](https://github.com/cgerke/Insta)
-* [Cãtãlin Mariş](https://github.com/alrra) and his [dotfiles repository](https://github.com/alrra/dotfiles)
-* [Gianni Chiappetta](http://gf3.ca/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
-* [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny _tilde_ repository](https://github.com/janmoesen/tilde)
-* [Lauri ‘Lri’ Ranta](http://lri.me/) for sharing [loads of hidden preferences](http://osxnotes.net/defaults.html)
-* [Matijs Brinkhuis](http://hotfusion.nl/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
-* [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
-* [Sindre Sorhus](http://sindresorhus.com/)
-* [Tom Ryder](http://blog.sanctum.geek.nz/) and his [dotfiles repository](https://github.com/tejr/dotfiles)
-* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.osx`](http://mths.be/osx)
+### `/ranger`
 
-* anyone who [contributed a patch](https://github.com/mathiasbynens/dotfiles/contributors) or [made a helpful suggestion](https://github.com/mathiasbynens/dotfiles/issues)
+Configuration of [ranger](http://ranger.nongnu.org/)
+
+### `/tmux`
+
+Configuration of [tmux](http://tmux.sourceforge.net/)
+
+### `/urxvt`
+
+Configuration of [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html)
+
+#### `/vim`
+
+Configuration of [Vim](http://www.vim.org)
+
++ `/vim/vimrc` the Vim configuration file
++ `/vim/README.md` is a summary of my Vim configuration customizations
++ `/vim/spell/` files needed for spelling
++ `/vim/UltiSnips/` my custom [UltiSnips][ulsns] snippets
+
+  [ulsns]: https://github.com/SirVer/ultisnips
+
+### `/xsession`
+
+Configuration of the __X__ session
+
++ `/xsession/xinitrc` bash script to setup the X session
+
+### `/zathura`
+
+Configuration of [zathura](http://pwmt.org/projects/zathura/)
