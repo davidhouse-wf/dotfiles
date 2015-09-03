@@ -24,7 +24,6 @@ install narwhal
 install vim --override-system-vim --override-system-vi --python3
 tap homebrew/dupes
 install homebrew/dupes/grep
-zsh:1: command not found: gg
 # install php55
 
 # This formula didn’t work well last time I tried it:

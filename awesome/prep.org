@@ -1,0 +1,10 @@
+* Awesome
+
+** Licenses & greetings
+
+*** Eminent
+    http://git.glacicle.org/eminent
+    Lucas de Vries <lucas@glacicle.org>
+    Licensed under the WTFPL version 2
+
+
