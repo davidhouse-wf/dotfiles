@@ -1,0 +1,46 @@
+# remap capslock
+
+# xscreen setup?
+
+# ssh keys
+
+
+# APT-GET installs --------
+
+# vim
+# + BundleInstall
+
+# build-essentials
+# bash-completion
+# git
+# mercurial
+# ninja
+
+# nodejs
+# + symlink nodejs to node
+# golang
+# + add goroot to path
+
+# mesa-gl?
+# blender3d?
+
+# imagemagick
+# poppler-utils
+
+# fontforge
+# gimp
+# inkscape
+
+# firefox
+# chromium
+
+# xclip
+# keypassx
+
+# virtualbox
+
+xdm
+i3
+laptop-mode-tools
+/etc/laptop-mode/laptop-mode.conf
+# enable laptop-mode.service

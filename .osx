@@ -21,6 +21,12 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
+# Disable fast user switching to hide username from menubar
+defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool NO
+
+# Change Desktop default BackgroundColor to grey
+defaults write com.apple.desktop '{ Background = { default = {BackgroundColor = ( "0.2549019753932953", "0.4117647111415863", "0.6666666865348816" ); Change = Never; ChangePath = "/Library/Desktop Pictures/Solid Colors"; ChangeTime = 1800; DrawBackgroundColor = 1; ImageFileAlias = <00000000 00ce0003 00000000 c73804cd 0000482b 00000000 000c2624 000c2633 0000ca1c 0a310000 00000920 fffe0000 00000000 0000ffff ffff0001 000c000c 2624000c 25fc000a 0789000e 00280013 0053006f 006c0069 00640020 00470072 00610079 00200044 00610072 006b002e 0070006e 0067000f 000c0005 006f0073 00780038 00360012 00394c69 62726172 792f4465 736b746f 70205069 63747572 65732f53 6f6c6964 20436f6c 6f72732f 536f6c69 64204772 61792044 61726b2e 706e6700 00130001 2f00ffff 0000>; ImageFilePath = "/Library/Desktop Pictures/Solid Colors/Solid Gray Dark.png"; NewChangePath = "/Library/Desktop Pictures/Solid Colors"; NewImageFilePath = "/Library/Desktop Pictures/Solid Colors/Solid Gray Dark.png"; NoImage = 0; Placement = Crop; Random = 0; }; }; }'
+
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
@@ -41,7 +47,7 @@ defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Set highlight color to green
-defaults write NSGlobalDomain AppleHighlightColor -string "0.764700 0.976500 0.568600"
+defaults write NSGlobalDomain AppleHighlightColor -string '0.976500 0.676500 0.676500'
 
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
@@ -184,12 +190,12 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
 defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=EUR"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `systemsetup -listtimezones` for other values
-systemsetup -settimezone "Europe/Brussels" > /dev/null
+systemsetup -settimezone "Brussels" > /dev/null
 
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -345,7 +351,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 64
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
@@ -386,7 +392,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Enable the 2D Dock
-#defaults write com.apple.dock no-glass -bool true
+defaults write com.apple.dock no-glass -bool true
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -417,14 +423,14 @@ sudo ln -sf /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app 
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
-# Top left screen corner → Mission Control
-defaults write com.apple.dock wvous-tl-corner -int 2
+# Top left screen corner → disable SS
+defaults write com.apple.dock wvous-tl-corner -int 6
 defaults write com.apple.dock wvous-tl-modifier -int 0
-# Top right screen corner → Desktop
-defaults write com.apple.dock wvous-tr-corner -int 4
+# Top right screen corner → disable SS
+defaults write com.apple.dock wvous-tr-corner -int 6
 defaults write com.apple.dock wvous-tr-modifier -int 0
-# Bottom left screen corner → Start screen saver
-defaults write com.apple.dock wvous-bl-corner -int 5
+# Bottom left screen corner → Lock screen
+defaults write com.apple.dock wvous-bl-corner -int 10
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
@@ -698,6 +704,9 @@ defaults write com.twitter.twitter-mac ShowFullNames -bool true
 
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
+
+# Add bs2b-au component
+#cp  ${HOME}/Library/Audio/Plug-Ins/Components/
 
 ###############################################################################
 # Kill affected applications                                                  #

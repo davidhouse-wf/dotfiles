@@ -48,6 +48,7 @@
 	# [default] space-before-tab: looks for spaces before tabs at the beginning of
 	# a line
 	whitespace = space-before-tab,indent-with-non-tab,trailing-space
+	editor = vim -f
 	# Make `git rebase` safer on OS X
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
@@ -72,6 +73,7 @@
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = vimdiff
 
 # URL shorthands
 [url "git@github.com:"]
@@ -89,3 +91,8 @@
 
 [push]
 	default = matching
+[user]
+	name = David House
+	email = dave.a.house@gmail.com
+[github]
+	user = davehouse

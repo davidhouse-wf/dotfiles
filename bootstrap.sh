@@ -3,7 +3,7 @@ cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
-		--exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
+		--exclude ".vim" --exclude ".vimrc" --exclude "vimified" --exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
 	source ~/.bash_profile
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
@@ -16,3 +16,12 @@ else
 	fi
 fi
 unset doIt
+
+# set up vimified
+ln -sfn $(pwd)/../vimified ~/.vim
+ln -sfn $(pwd)/../vimified/vimrc ~/.vimrc
+mkdir ~/.vim/tmp
+mkdir ~/.vim/tmp/backup
+mkdir ~/.vim/tmp/swap
+mkdir ~/.vim/tmp/undo
+git clone git@github.com:gmarik/vundle.git ~/.vim/bundle/vundle

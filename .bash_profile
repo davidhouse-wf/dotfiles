@@ -1,13 +1,20 @@
+echo '.bash_profile'
+
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH"
+export PATH=$HOME/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+
+. $HOME/.profile
+
+. $HOME/.bashrc
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file"
-done
-unset file
+#for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+#	[ -r "$file" ] && source "$file"
+#done
+#unset file
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -37,3 +44,21 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+# Misc system tools
+alias rmtrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+alias sky="cd /Users/davidhouse/workspaces/wf/bigsky/z_bigsky && source /Users/davidhouse/dev/wf/sky/bin/activate"
+if [ -d /Applications ]; then
+alias ios="open `xcode-select --print-path`/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone\ Simulator.app"
+fi
+
+# add npm for nodejs
+export PATH=$PATH:/usr/local/share/npm/bin
+export NODE_PATH=/usr/local/share/npm/lib/node_modules/
+
+# pkg-config paths from homebrew
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
+
+# homebrew python packages
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH

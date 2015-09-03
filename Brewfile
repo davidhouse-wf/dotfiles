@@ -21,11 +21,10 @@ install ringojs
 install narwhal
 
 # Install more recent versions of some OS X tools
-install vim --override-system-vi
+install vim --override-system-vim --override-system-vi --python3
 tap homebrew/dupes
 install homebrew/dupes/grep
-tap josegonzalez/homebrew-php
-install php55
+# install php55
 
 # This formula didn’t work well last time I tried it:
 #install homebrew/dupes/screen
@@ -45,8 +44,19 @@ install webkit2png
 install zopfli
 install p7zip
 
-tap homebrew/versions
-install lua52
+#tap homebrew/versions
+#install lua52
+
+# David additions
+install pkg-config
+install llvm --with-clang
+install libpng
+install autoconf
+install automake
+install poppler --with-glib
+install -v fontforge --with-cairo --with-czmq --with-git --with-x --with-libspiro --enable-pyextension --with-python
+install ncurses
+install the_silver_searcher
 
 # Remove outdated versions from the cellar
 cleanup

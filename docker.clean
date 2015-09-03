@@ -1,0 +1,6 @@
+echo '**************'
+echo 'Remove all docker containers from log.'
+docker rm $(docker ps -aq)
+echo '**************'
+echo 'Remove all untagged docker images.'
+docker rmi -f $(docker images | grep "^<none>" | awk "{print \$3}")
