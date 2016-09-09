@@ -180,5 +180,10 @@ filetype plugin indent on
 set diffopt+=vertical
 
 set background=dark
-colorscheme distinguished
+try
+    colorscheme distinguished
+catch /^Vim\%((\a\+)\)\=:E185/
+    silent! colorscheme badwolf
+    " deal with it
+endtry
 
