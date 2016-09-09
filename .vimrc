@@ -34,7 +34,12 @@ set noerrorbells
 set laststatus=2
 set nowrap
 set formatoptions=qrn1
+set textwidth=80
 set colorcolumn=+1
+
+set lazyredraw                  " only redraws if it is needed
+set autoread                    " update a open file edited outside of Vim
+set ttimeoutlen=0               " toggle between modes almost instantly
 
 set title
 set titleold=
@@ -66,13 +71,14 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set shiftround
+set autoindent                 " set on the auto-indent
 
 " default OS clipboard
 set clipboard=unnamed
 
 set wildmenu
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc,tmp,*.scssc
-set wildignore+=*.pyc
+set wildignore+=*.pyc,*.bak
 set wildignore+=tags
 set wildignorecase
 
@@ -80,6 +86,7 @@ set dictionary=/usr/share/dict/words
 
 set showmode
 
+set fillchars+=vert:│           " better looking for windows separator
 
 " Optimize for fast terminal connections
 set ttyfast
@@ -107,6 +114,9 @@ endif
 
 set modeline
 set modelines=4
+
+nnoremap <Leader>v <C-w>v
+nnoremap <Leader>h <C-w>s
 
 " Show invisible characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -187,3 +197,4 @@ catch /^Vim\%((\a\+)\)\=:E185/
     " deal with it
 endtry
 
+set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 11
