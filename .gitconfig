@@ -1,3 +1,14 @@
 [user]
 	email = dave.a.house@gmail.com
 	name = Dave House
+	signingkey = 28734DBB852AB21D
+[color]
+    ui = true
+[push]
+	default = simple
+[alias]
+    ci = commit
+    st = status
+    co = checkout
+[commit]
+	gpgsign = true
