@@ -102,5 +102,8 @@ brew install vbindiff
 #brew install webkit2png
 #brew install zopfli
 
+brew install w3m
+brew install ffmpegthumbnailer
+
 # Remove outdated versions from the cellar.
 brew cleanup
