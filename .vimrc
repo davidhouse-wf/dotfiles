@@ -1,87 +1,132 @@
-" Use the Solarized Dark theme
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+let mapleader=","
+inoremap jk <Esc>
 
-" Make Vim more useful
-set nocompatible
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
-" Enhance command-line completion
-set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
-" Allow backspace in insert mode
 set backspace=indent,eol,start
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+nnoremap gb :ls<CR>:b<Space>
+set switchbuf=useopen
+
+noremap <C-h>  <C-w>h
+noremap <C-j>  <C-w>j
+noremap <C-k>  <C-w>k
+noremap <C-l>  <C-w>l
+
+nnoremap / /\v
+vnoremap / /\v
+noremap <leader><space> :noh<cr>:call clearmatches()<cr>
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" ignore arrows
+noremap <left> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <right> <nop>
+
+" No startup text
+set shortmess=atI
+
+set ruler
+set nostartofline
+set visualbell
+set noerrorbells
+set laststatus=2
+set nowrap
+set formatoptions=qrn1
+set colorcolumn=+1
+
+set title
+set titleold=
+set showcmd
+
+set numberwidth=3
+set cpoptions+=n
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+set relativenumber
+set number
+set scrolloff=3
+
+set showmatch
+set endofline
+
+set cursorline
+
+set backup
+set noswapfile
+set undofile
+set undolevels=3000
+set undoreload=10000
+
+set nocompatible
+
+" tabs as spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set shiftround
+
+" default OS clipboard
+set clipboard=unnamed
+
+set wildmenu
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc,tmp,*.scssc
+set wildignore+=*.pyc
+set wildignore+=tags
+set wildignorecase
+
+set dictionary=/usr/share/dict/words
+
+set showmode
+
+
 " Optimize for fast terminal connections
 set ttyfast
-" Add the g flag to search/replace by default
+
+" search options
+set showmatch
+set smartcase
+set ignorecase
 set gdefault
+set hlsearch
+set incsearch
+
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
-" Change mapleader
-let mapleader=","
-" Don’t add empty newlines at the end of files
+
+" No empty newlines at file end
 set binary
 set noeol
-" Centralize backups, swapfiles and undo history
+
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
-
-" Respect modeline in files
 set modeline
 set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
+
+" Show invisible characters
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set showbreak=↪
+set list
+
+" per-directory .vimrc files
 set exrc
 set secure
-" Enable line numbers
-set number
+
 " Enable syntax highlighting
-syntax on
-" Highlight current line
-set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
-" Highlight searches
-set hlsearch
-" Ignore case of searches
-set ignorecase
-" Highlight dynamically as pattern is typed
-set incsearch
-" Always show status line
-set laststatus=2
-" Enable mouse in all modes
-set mouse=a
-" Disable error bells
-set noerrorbells
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-" Show the cursor position
-set ruler
-" Don’t show the intro message when starting Vim
-set shortmess=atI
-" Show the current mode
-set showmode
-" Show the filename in the window titlebar
-set title
-" Show the (partial) command as it’s being typed
-set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
+" syntax on
+if exists("&syntax")
+	syntax on
 endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
+
+" Enable mouse in all modes
+"if exists("&mouse")
+"	set mouse=a
+"endif
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
@@ -101,6 +146,39 @@ if has("autocmd")
 	filetype on
 	" Treat .json files as .js
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+if !filereadable(expand("%:p:h")."/Makefile")
+	setlocal makeprg=gcc\ -Wall\ -Wextra\ -o\ %<\ %
+endif
+
+autocmd FileType python setlocal makeprg=python\ %
+set autowrite
+autocmd FileType python nmap <buffer> <F5> :w<Esc>mwG:r!python %<CR>`.
+autocmd FileType python set ai sw=4 sts=4 ts=4 et
+
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" Packages : Vundle
+filetype off 
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+    Plugin 'tpope/vim-fugitive'
+
+    Bundle 'Lokaltog/vim-distinguished'
+    Bundle 'sjl/badwolf'
+
+    Plugin 'bling/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+
+    " Python
+    Bundle 'nvie/vim-flake8'
+call vundle#end()
+filetype plugin indent on
+
+set diffopt+=vertical
+
+set background=dark
+colorscheme distinguished
+
