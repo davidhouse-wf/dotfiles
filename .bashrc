@@ -134,3 +134,5 @@ fi;
 # export AWS_SECRET_ACCESS_KEY=DqXwu1BrehP7iWUdviVoWgix+LEDdLJCw5MVhtsg
 
 GPGKEY=22AA9B4684FDFA5E475289C528734DBB852AB21D
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

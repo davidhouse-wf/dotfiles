@@ -105,5 +105,7 @@ brew install vbindiff
 brew install w3m
 brew install ffmpegthumbnailer
 
+brew install fzf
+
 # Remove outdated versions from the cellar.
 brew cleanup
