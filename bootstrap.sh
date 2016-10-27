@@ -25,3 +25,17 @@ else
 	fi;
 fi;
 unset doIt;
+
+echo Setting up VIM
+mkdir -p ~/.vim/backups
+mkdir -p ~/.vim/swaps
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+read -p "Install extra powerline fonts? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	echo Installing powerline fonts ...
+	git clone git@github.com:powerline/fonts.git
+	(cd fonts; ./install.sh)
+fi
