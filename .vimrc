@@ -169,23 +169,20 @@ autocmd FileType python set ai sw=4 sts=4 ts=4 et
 
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" Packages : Vundle
-filetype off 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-    Plugin 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
 
-    Bundle 'Lokaltog/vim-distinguished'
-    Bundle 'sjl/badwolf'
+    Plug 'Lokaltog/vim-distinguished'
+    Plug 'sjl/badwolf'
 
-    Plugin 'bling/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
+    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 
-    " Python
-    Bundle 'nvie/vim-flake8'
-call vundle#end()
-filetype plugin indent on
+    Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
+    Plug 'junegunn/vim-easy-align'
+
+call plug#end()
 
 set diffopt+=vertical
 

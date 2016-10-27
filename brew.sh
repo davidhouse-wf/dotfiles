@@ -105,6 +105,8 @@ brew install w3m
 brew install ffmpegthumbnailer
 
 brew install fzf
+brew install gnupg gpg-agent pinentry-mac
+
 
 # Remove outdated versions from the cellar.
 brew cleanup
