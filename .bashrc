@@ -129,10 +129,6 @@ fi;
 # tab completion for SSH hostnames
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
-# personal AWS
-# export AWS_ACCESS_KEY_ID=AKIAJDA2STNGXOR2U6YQ
-# export AWS_SECRET_ACCESS_KEY=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
-
 GPGKEY=22AA9B4684FDFA5E475289C528734DBB852AB21D
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
